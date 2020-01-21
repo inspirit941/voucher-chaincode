@@ -1,0 +1,22 @@
+peer chaincode instantiate\
+ -o orderer.example.com:7050\
+ --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C mychannel\
+ -n voucher\
+ -v 1.0\
+ -c '{"Args":["init"]}'\
+ -P "OR ('Org1MSP.peer','Org2MSP.peer')"
+
+ peer chaincode invoke\
+ -o orderer.example.com:7050\
+ --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C mychannel\
+ -n voucher "" \
+ -c '{"Args":["createWallet","a","LDG","100","SKKU"]}'
+
+peer chaincode query\
+ -C mychannel\
+ -n mycc\
+ -c '{"Args":["queryBalance","a"]}'
