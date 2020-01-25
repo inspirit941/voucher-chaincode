@@ -14,9 +14,17 @@ peer chaincode instantiate\
  --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
  -C mychannel\
  -n voucher "" \
- -c '{"Args":["createWallet","a","LDG","100","SKKU"]}'
+ -c '{"Args":["createWallet","b","CSY","200","SKKU"]}'
 
 peer chaincode query\
  -C mychannel\
  -n mycc\
  -c '{"Args":["queryBalance","a"]}'
+
+ peer chaincode invoke\
+ -o orderer.example.com:7050\
+ --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C mychannel\
+ -n voucher "" \
+ -c '{"Args":["transfer","a","b","10"]}'

@@ -1,0 +1,200 @@
+442  curl -sSL http://bit.ly/2ysbOFE | bash -s
+443  curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh | bash -s
+444  ping google.com
+445  cd ..
+446  ls
+447  cp -R fabric-samplesold fabric-samples
+448  cd fabric-samples
+449  ls
+450  rm -rf fabric-samplesold/
+451  cd ..
+452  rm fabric-samples
+453  rm -rf fabric-samples
+454  cp -R fabric-samplesold fabric-samples
+455  ls
+456  cd fabric-samples
+457  ls
+458  cd ..
+459  rm -rf fabric-samplesold/
+460  ping google.com
+461  clear
+462  ping google.com
+463  ping 10.0.80.11
+464  cat /etc/resolvconf/resolv.conf.d/base
+465  set -o vi
+466  /cat
+467  vi /etc/resolv.conf
+468  ping google.com
+469  vi /etc/resolvconf/resolv.conf.d/base
+470  ping google.com
+471  sudo resolvconf -u
+472  ping google.com
+473  ls
+474  cd fabric-samples/
+475  cd first-network/
+476  ./byfn.sh
+477  ./byfn.sh up -c mychannel -s couchdb
+478  clear
+479  ping google.com
+480  vi /etc/resolvconf/resolv.conf.d/base
+481  exit
+482  ./byfn.sh
+483  curl -sSL http://bit.ly/2ysbOFE | bash -s
+484  cd fabric-samples/
+485  cd first-network/
+486  ./byfn.sh up -c mychannel -s couchdb
+487  cd
+488  ls
+489  vi .profile
+490  source .prifile
+491  source .profile
+492  cd fabric-samples/
+493  cd first-network/
+494  ls
+495  ./byfn.sh up -c mychannel -s couchdb
+496  echo $PATH
+497  go env | egrep ‘GOPATH|GOROOT'
+498  go env | grep GOROOT
+499  go env | grep GOPATH
+500  ./byfn.sh down
+501  docker info
+502  ./byfn.sh
+503  service docker restart
+504  ./byfn.sh up -c mychannel -s couchdb
+505  cd
+506  sudo apt update
+507  osversion
+508  sudo apt install apt-transport-https ca-certificates curl software-properties-common
+509  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+510  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+511  sudo apt update
+512  apt-cache policy docker-ce
+513  sudo apt install docker-ce
+514  sudo systemctl status docker
+515  docker -v
+516  sudo groupadd docker
+517  sudo usermod -aG docker $USER
+518  chattr -i group
+519  sudo chattr -i group
+520  chattr -i shadow
+521  ls -l /etc/shadow
+522  shows : -rw-r--r-- for shadow
+523  apt install show
+524  shows : -rw-r--r-- for shadow
+525  apt install shows
+526  lsattr /etc/shadow
+527  sudo usermod -aG docker $USER
+528  strace -o /root/blah -ff useradd imatestuser
+529  ls /etc/shadow
+530  cd /etc/shadow
+531  cd /etc
+532  ls shadow
+533  ls -a  shadow
+534  ls -al  shadow
+535  dpkg-query -S /usr/sbin/useradd
+536  sudo usermod -aG docker $USER
+537  ls -l /etc/shadow
+538  chmod 755 /etc/shadow
+539  sudo chmod 755 /etc/shadow
+540  strace -o adduser.out useradd test
+541  ls -ltr
+542  more adduser.out
+543  chattr -i /etc/gshadow
+544  useradd test
+545  chattr +i /etc/shadow
+546  chattr +i /etc/group
+547  chattr +i /etc/gshadow
+548  useradd test
+549  lsattr  /etc/shadow
+550  lsattr  /etc/group
+551  lsattr  /etc/gshadow
+552  id test
+553  group
+554  usera
+555  set -o vi
+556  sudo usermod -aG docker $USER
+557  echo $USER
+558  ls -l /etc/shadow
+559  sudo usermod 640 /etc/shadow
+560  sudo chmod 640 /etc/shadow
+561  chattr -ai /etc/gshadow
+562  sudo usermod -aG docker $USER
+563  usermod -aG docker $USER
+564  cd
+565  cd fabric-samples/first-network/
+566  ./byfn.sh up -c mychannel -s couchdb
+567  docker -v
+568  cd /
+569  cd
+570  ls
+571  ping google.com
+572  ls
+573  dovk
+574  ps aux | grep docker
+575  cd
+576  cd /
+577  ls
+578  cd
+579  ls
+580  pwd
+581  service docker start
+582  ps aux | grep docker
+583  docker ps -a
+584  docker run -it ubuntu /bin/bash
+585  docker -v
+586  mkdir -p ~/go/src/github.com/docker
+587  cd ~/go/src/github.com/docker
+588  git clone https://github.com/docker/engine
+589  git clone https://github.com/docker/cli
+590  git clone https://github.com/docker/seemethere/docker-ce-packaging
+591  sudo apt update
+592  sudo apt upgrade
+593  sudo reboot 0
+594  clear
+595  ls
+596  pwd
+597  cd home/
+598  ls
+599  cd explorer/
+600  ls
+601  id
+602  cd fabric-samples/
+603  ls
+604  ls
+605  docker -v
+606  cd first-network/
+607  ls
+608  dovcker images
+609  docker images
+610  ./byfn.sh up -c mychannel -s couch
+611  docker ps
+612  ./byfn.sh
+613  ./byfn.sh generate -c mychannel
+614  cd /
+615  set -o vi
+616  ./byfn.sh
+617  pwd
+618  cd -
+619  ./byfn.sh
+620  ./byfn.sh up -c mychannel -s couchdb
+621  docker ps
+622  sudo groupadd docker
+623  sudo usermod -aG docker $USER
+624  uname -a
+625  df
+626  uname -a
+627  docker ps
+628  systemctl restart docker
+629  systemctl daemon-reload
+630  ./byfn.sh up -c mychannel -s couchdb
+631  ls
+632  ./byfn.sh down
+633  ./byfn.sh
+634  ./byfn.sh generate -c mychannel
+635  ./byfn.sh up -c mychannel -s couchdb
+636  docker ps
+637  exit
+638  do-release-upgrade
+639  exit
+640  docker ps
+641  exit
