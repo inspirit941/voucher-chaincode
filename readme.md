@@ -50,7 +50,7 @@ Lecture Asset의 primary key는 Sid+ "\_" + Courseid + "\_1" 형태로 정의한
 
 input 인자 변동 가능성 있음
 
-- data_to_fabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
+- dataToFabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
 
 웹 서버 측에서 블록체인에 데이터를 전송하는 함수. 웹 서버 측에서는 블록체인에 데이터를 전송해야 할 경우 이 함수만 사용할 수 있도록.
 
@@ -60,5 +60,5 @@ input 인자 변동 가능성 있음
 퀴즈가 있는 강의일 경우 "맞춘 정답 리스트나 개수" 등의 값도 추가할 수 있을 것으로 생각함
 
 - createLecture(Sid, CourseId, Lecture_fin_date, lecture_number, focus_rate)
-	* 전부 string. data_to_fabric으로 처리한 데이터를 토대로 Lecture Asset을 생성하는 함수
+	* 전부 string. dataToFabric으로 처리한 데이터를 토대로 Lecture Asset을 생성하는 함수
 
