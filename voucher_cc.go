@@ -131,6 +131,34 @@ func (s *SmartContract) transfer(APIstub shim.ChaincodeStubInterface, args []str
 	return shim.Success(fromWalletasBytes)
 }
 
+// marshall - json을 바이트 형태로 변환
+// unmarshall - 바이트를 json으로 변환
+func (s *SmartContract) createWallet(APIstub shim.ChaincodeStubInterface, args []string) sc.Response {
+
+	if len(args) != 4 {
+		return shim.Error("Incorrect number of arguments. Expecting 4")
+	}
+
+	var address =  args[0]
+	var name = args[1]
+	var balance, _ = strconv.Atoi(args[2])
+	var org = args[3]
+	
+	var newWallet = Wallet{Address : address, Name : name, Balance : balance, Org : org}
+
+	walletAsBytes, err := json.Marshal(newWallet)
+	if err != nil {
+		return shim.Error("Json_to_Bytes Error.")
+	} else if walletAsBytes == nil {
+		return shim.Error("Marble does not exits.")
+	}
+
+	APIstub.PutState(address, walletAsBytes)
+	
+	return shim.Success(walletAsBytes)
+}
+
+
 // The main function is only relevant in unit test mode. Only included here for completeness.
 func main() {
 

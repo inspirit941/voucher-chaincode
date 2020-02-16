@@ -28,3 +28,37 @@ peer chaincode query\
  -C mychannel\
  -n voucher "" \
  -c '{"Args":["transfer","a","b","10"]}'
+
+
+-n : 체인코드 이름. 아무렇게나 써도 무방함. 통일성만 있으면
+-C : 네트워크 이름. 처음에 네트워크 생성할 때.
+vm 4에서는 채널명 lecture로 저장.
+
+peer chaincode install -n test -p github.com/chaincode/test/go -v 1.0
+peer chaincode instantiate -o orderer.example.com:7050\
+ --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+  -C lecture -n test1 \
+  -c '{"Args":["init"]}' -P "OR ('Org1MSP.peer','Org2MSP.peer')" -v 1.1
+
+peer chaincode upgrade -o orderer.example.com:7050\
+ --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+  -C lecture -n test \
+  -c '{"Args":["init"]}' -P "OR ('Org1MSP.peer','Org2MSP.peer')" -v 1.1
+
+
+
+peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C lecture -n test -c '{"Args":["createLecture", "1","1","1231412","1","87.6"]}'
+
+
+ peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C lecture -n test -c '{"Args":["dataToFabric", "1","1","1231412","1","1581838741700", "1581836524993"]}'
+
+
+ peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C lecture -n test -c '{"Args":["queryRecord", "11_1"]}'
