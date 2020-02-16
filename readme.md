@@ -42,7 +42,7 @@ type Lecture struct {
 }
 ```
 
-Lecture Asset의 primary key는 Sid+Courseid+"_1" 형태로 정의한다.
+Lecture Asset의 primary key는 Sid+ "\_" + Courseid + "\_1" 형태로 정의한다.
 
 
 
