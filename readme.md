@@ -47,10 +47,14 @@ type Lecture struct {
 }
 ```
 
+<<<<<<< HEAD
 - CourseStatistics
 
 해당 Courseid에서 CalculateVoucher 함수에 사용할 각종 값을 저장하는 Asset.
 primary key : Courseid
+=======
+Lecture Asset의 primary key는 Sid+ "\_" + Courseid + "\_1" 형태로 정의한다.
+>>>>>>> 1a7b34273f854440094e468813d691ed39607cca
 
 AvgFocusRate: hashmap 형태의 자료구조. key값으로는 lecture_number를, value값은 해당 lecture_number 수강 완료생의 평균 Focus rate 값.
 Count : hashmap 형태의 자료구조. key값은 lecture_number, value값은 해당 lecture_number를 수강한 학생의 수
@@ -70,7 +74,7 @@ type CourseStatistics struct {
 
 input 인자 변동 가능성 있음
 
-- data_to_fabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
+- dataToFabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
 
 웹 서버 측에서 블록체인에 데이터를 전송하는 함수. 웹 서버 측에서는 블록체인에 데이터를 전송해야 할 경우 이 함수만 사용할 수 있도록.
 
@@ -95,5 +99,6 @@ input 인자 변동 가능성 있음
 - CalculateVoucher(Sid, CouresId, 기타...) : 하나의 lecture를 마친 뒤 Voucher를 계산받는 함수.
 	* 현재의 logic (변경 가능.)
 		-	수강생(Sid)이 수강한 강의 (CourseId) 전체의 평균 AvgFocusRate가 해당 강의의 모든 수강생 평균 AvgFocusRate보다 클 경우 Voucher 1.2배 지급
+
 
 (개별 강의 하나하나마다 만들지, 강의 전체를 듣고 강좌별로 작업할지 현재 분명하지 않아서, 일단 개별 강의 수강을 마친 뒤 함수 시행. 강의 전체를 듣고 해당 강좌를 대상으로 수행하려면, 각 강좌별 몇 개의 강의가 있는지 등등)
