@@ -38,8 +38,8 @@ peer chaincode install -n test -p github.com/chaincode/test/go -v 1.0
 peer chaincode instantiate -o orderer.example.com:7050\
  --tls "true"\
  --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
-  -C lecture -n test1 \
-  -c '{"Args":["init"]}' -P "OR ('Org1MSP.peer','Org2MSP.peer')" -v 1.1
+  -C lecture -n test \
+  -c '{"Args":["init"]}' -P "OR ('Org1MSP.peer','Org2MSP.peer')" -v 1.0
 
 peer chaincode upgrade -o orderer.example.com:7050\
  --tls "true"\
@@ -61,4 +61,9 @@ peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
 
  peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
  --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
- -C lecture -n test -c '{"Args":["queryRecord", "11_1"]}'
+ -C lecture -n test -c '{"Args":["queryRecord", "1_1_1"]}'
+
+
+ peer chaincode invoke -o orderer.example.com:7050 --tls "true"\
+ --cafile /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/msp/tlscacerts/tlsca.example.com-cert.pem\
+ -C lecture -n test -c '{"Args":["updateCourseStatistics","1","1","87.6"]}'
