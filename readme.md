@@ -30,7 +30,7 @@ API 결과 반환 값
 
 특이점 : struct 내에 정의한 항목은 대문자로 정의하지 않으면 Chaincode에서 반영되지 않는다.
 
-#### Lecture : 강의를 수강 완료했을 때 생성하는 Asset.
+### Lecture : 강의를 수강 완료했을 때 생성하는 Asset.
 
 primary key : Sid+Courseid+"_1" 형태로 정의한다.
 
@@ -45,7 +45,7 @@ type Lecture struct {
 }
 ```
 
-#### CourseStatistics: 해당 Courseid에서 CalculateVoucher 함수에 사용할 각종 값을 저장하는 Asset.
+### CourseStatistics: 해당 Courseid에서 CalculateVoucher 함수에 사용할 각종 값을 저장하는 Asset.
 
 primary key : Courseid
 Lecture Asset의 primary key는 Sid+ "\_" + Courseid + "\_1" 형태로 정의한다.
@@ -79,7 +79,7 @@ ex) 파이썬 웹 프로그래밍 '강의'가 있다면, 1번 - python이란? '�
 
 
 웹 서버 측에서 블록체인에 데이터를 전송하는 함수. 웹 서버 측에서는 블록체인에 데이터를 전송해야 할 경우 이 함수만 사용할 수 있도록.
-#### dataToFabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
+### dataToFabric(Sid, CourseId, Lecture_fin_date, Lecture_number, total_lectureTime, focus_lectureTime, 기타)
 
 * total_lecture_time : 사용자가 동영상을 재생한 총 시간. 유닉스 (Unix) 시간초를 string 형태로 전달
 * focus_lecture_time : blur로 처리되지 않은 재생시간. 유닉스 (Unix) 시간초를 string 형태로 전달
@@ -87,19 +87,19 @@ ex) 파이썬 웹 프로그래밍 '강의'가 있다면, 1번 - python이란? '�
 퀴즈가 있는 강의일 경우 "맞춘 정답 리스트나 개수" 등의 값도 추가할 수 있을 것으로 생각함
 
 강좌 수강을 마친 뒤, 수강생의 해당 강의 수강정보를 저장하는 함수
-#### createLecture(Sid, CourseId, Lecture_fin_date, lecture_number, focus_rate)
+### createLecture(Sid, CourseId, Lecture_fin_date, lecture_number, focus_rate)
 
 * 전부 string. data_to_fabric으로 처리한 데이터를 토대로 Lecture Asset을 생성하는 함수
 * CompositeKey의 작동여부는 20.02.22 기준으로 아직 미확인
 	
 
 강좌 수강을 마친 뒤 createLecture함수를 실행할 때, 해당 강의를 수강한 학생들이 만들어낸 데이터를 저장하는 함수
-#### updateCourseStatistics(Courseid, lecture_number, focus_rate)
+### updateCourseStatistics(Courseid, lecture_number, focus_rate)
 * createLecture 함수 마지막에 실행됨. 해당 Courseid의 CourseStatistics Asset을 생성하고, CourseStatistics의 AvgFocusRate값을 업데이트한다.
 * map 자료구조는 동시성을 지원하지 않는다고 해서, go 언어의 sync.RWMutex를 사용함
 참고: https://blog.golang.org/go-maps-in-action
 	
-#### CalculateVoucher(Sid, CouresId, 기타...) : 하나의 lecture를 마친 뒤 Voucher를 계산받는 함수.
+### CalculateVoucher(Sid, CouresId, 기타...) : 하나의 lecture를 마친 뒤 Voucher를 계산받는 함수.
 
 * 현재의 logic (변경 가능.)
 	- 수강생(Sid)이 수강한 강의 (CourseId) 전체의 평균 AvgFocusRate가 해당 강의의 모든 수강생 평균 AvgFocusRate보다 클 경우 Voucher 1.2배 지급
